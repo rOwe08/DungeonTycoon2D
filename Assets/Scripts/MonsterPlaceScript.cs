@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreaturePlaceScript : MonoBehaviour
+public class MonsterPlaceScript : MonoBehaviour
 {
     private Camera _mainCamera;
+    public Monster MonsterAssigned;
 
     void Start()
     {
@@ -32,7 +33,8 @@ public class CreaturePlaceScript : MonoBehaviour
         Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
         if (hitCollider != null && hitCollider.gameObject == gameObject)
         {
-            UIManager.Instance.OpenMonsterPlaceWindow();
+            Monster monsterAssigned = MonsterAssigned ?? new Monster { Name = "rOwe" };
+            UIManager.Instance.OpenMonsterPlaceWindow(monsterAssigned);
         }
     }
 }

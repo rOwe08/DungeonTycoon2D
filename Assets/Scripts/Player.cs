@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     public int Level;
     public int XP;
 
+    public List<Hero> HeroesOwned;
+    public List<Monster> MonstersOwned;
+
     // Start is called before the first frame update
     void Start()
     {

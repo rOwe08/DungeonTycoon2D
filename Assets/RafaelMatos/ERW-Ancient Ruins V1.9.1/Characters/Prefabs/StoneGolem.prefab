@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3248787690555597829}
   - component: {fileID: 3248787690555597828}
   - component: {fileID: 3248787690555597831}
+  - component: {fileID: 565948076115952626}
   m_Layer: 0
   m_Name: StoneGolem
   m_TagString: Untagged
@@ -106,3 +107,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &565948076115952626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3248787690555597830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a92afeb404c50744b52e5b101632c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Stone Golem
+  BaseLevel: 1
+  BasePower: 2476
+  CurrentLevel: 0
+  CurrentPower: 0

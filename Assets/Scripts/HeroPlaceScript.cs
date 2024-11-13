@@ -6,6 +6,8 @@ public class HeroPlaceScript : MonoBehaviour
 {
     private Camera _mainCamera;
 
+    public Hero HeroAssigned;
+
     void Start()
     {
         _mainCamera = Camera.main;
@@ -27,12 +29,14 @@ public class HeroPlaceScript : MonoBehaviour
     void DetectClickOrTouch(Vector3 inputPosition)
     {
         Vector3 worldPosition = _mainCamera.ScreenToWorldPoint(inputPosition);
-        worldPosition.z = 0; 
+        worldPosition.z = 0;
 
         Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
-        if (hitCollider != null && hitCollider.gameObject == gameObject) 
+        if (hitCollider != null && hitCollider.gameObject == gameObject)
         {
-            UIManager.Instance.OpenHeroPlaceWindow();
+            Hero heroToAssign = HeroAssigned ?? new Hero { Name = string.Empty };
+            UIManager.Instance.OpenHeroPlaceWindow(heroToAssign);
         }
     }
+
 }

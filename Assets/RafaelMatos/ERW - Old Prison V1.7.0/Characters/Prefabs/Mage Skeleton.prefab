@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5073797037219488379}
   - component: {fileID: 719651582581120992}
   - component: {fileID: 422060131442760895}
+  - component: {fileID: 2334258541580882630}
   m_Layer: 0
   m_Name: Mage Skeleton
   m_TagString: Untagged
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5744036622950103720}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &719651582581120992
 SpriteRenderer:
@@ -106,3 +107,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2334258541580882630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5744036622950103720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f732531abe4b6447b9d341fcc664c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Mage Skeleton
+  BaseLevel: 1
+  BasePower: 294
+  CurrentLevel: 0
+  CurrentPower: 0
