@@ -25,7 +25,7 @@ public class ObjectsCollector : MonoBehaviour
 
     [Space(10)]
     [Header("Prefabs")]
-    public GameObject OwndeNPCPlaceButton;
+    public GameObject OwndeNpcPlaceButton;
 
     [HideInInspector]
     public MainGateScript mainGateScript;

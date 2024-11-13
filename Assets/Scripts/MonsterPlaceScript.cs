@@ -21,7 +21,7 @@ public class MonsterPlaceScript : MonoBehaviour
         Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
         if (hitCollider != null && hitCollider.gameObject == gameObject)
         {
-            Monster monsterAssigned = MonsterAssigned ?? new Monster { Name = "rOwe" };
+            Monster monsterAssigned = MonsterAssigned ?? new Monster { Name = "rowe" };
             UIManager.Instance.OpenMonsterPlaceWindow(monsterAssigned);
         }
     }

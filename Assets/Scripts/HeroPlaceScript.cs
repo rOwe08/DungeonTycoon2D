@@ -21,7 +21,7 @@ public class HeroPlaceScript : MonoBehaviour
         Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
         if (hitCollider != null && hitCollider.gameObject == gameObject)
         {
-            Hero heroToAssign = HeroAssigned ?? new Hero { Name = string.Empty };
+            Hero heroToAssign = HeroAssigned ?? new Hero { Name = "rowe" };
             UIManager.Instance.OpenHeroPlaceWindow(heroToAssign);
         }
     }

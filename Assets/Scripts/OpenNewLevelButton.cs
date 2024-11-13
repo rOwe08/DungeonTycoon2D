@@ -12,6 +12,8 @@ public class OpenNewLevelButton : MonoBehaviour
     public GameObject UnlockButton;
     public GameObject PriceText;
 
+    public GameObject NextLevel;
+
     public int Price;
 
     private void Start()
@@ -36,9 +38,16 @@ public class OpenNewLevelButton : MonoBehaviour
 
                 player.OnCoinsChange(-Price);
 
+                RevealNextLevel();
+
                 Destroy(UnlockButton);
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void RevealNextLevel()
+    {
+        NextLevel.SetActive(true);
     }
 }
