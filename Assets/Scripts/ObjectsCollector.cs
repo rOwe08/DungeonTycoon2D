@@ -7,6 +7,8 @@ public class ObjectsCollector : MonoBehaviour
 
     public GameObject MainGate;
 
+    public GameObject HeroPlaceWindow;
+
     [HideInInspector]
     public MainGateScript mainGateScript;
 
