@@ -6,7 +6,7 @@ public class UnlockButton : MonoBehaviour
 {
     public GameObject ButtonToReveal;
 
-    private void OnEnable()
+    private void Start()
     {
         InputManager.Instance.OnTouchOrClickDetected.AddListener(HandleTouchOrClick);
     }

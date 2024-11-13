@@ -17,10 +17,6 @@ public class OpenNewLevelButton : MonoBehaviour
     private void Start()
     {
         PriceText.GetComponent<TextMeshPro>().text = Price.ToString();
-    }
-
-    private void OnEnable()
-    {
         InputManager.Instance.OnTouchOrClickDetected.AddListener(HandleTouchOrClick);
     }
 

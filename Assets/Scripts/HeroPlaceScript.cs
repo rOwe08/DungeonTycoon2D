@@ -6,7 +6,7 @@ public class HeroPlaceScript : MonoBehaviour
 {
     public Hero HeroAssigned;
 
-    private void OnEnable()
+    private void Start()
     {
         InputManager.Instance.OnTouchOrClickDetected.AddListener(HandleTouchOrClick);
     }

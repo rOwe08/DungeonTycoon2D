@@ -6,7 +6,7 @@ public class MonsterPlaceScript : MonoBehaviour
 {
     public Monster MonsterAssigned;
 
-    private void OnEnable()
+    private void Start()
     {
         InputManager.Instance.OnTouchOrClickDetected.AddListener(HandleTouchOrClick);
     }
