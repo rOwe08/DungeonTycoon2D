@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
     private ObjectsCollector _objectsCollector;
 
     private GameObject _heroPlaceWindow;
+    private GameObject _monsterPlaceWindow;
+
     private GameObject _shopWindow;
     public static UIManager Instance { get; private set; }
 
@@ -27,12 +29,19 @@ public class UIManager : MonoBehaviour
     {
         _objectsCollector = FindAnyObjectByType<ObjectsCollector>();
         _heroPlaceWindow = _objectsCollector.HeroPlaceWindow;
+        _monsterPlaceWindow = _objectsCollector.MonsterPlaceWindow;
+
         _shopWindow = _objectsCollector.ShopWindow;
     }
 
     public void OpenHeroPlaceWindow()
     {
         _heroPlaceWindow.SetActive(true);
+    }
+
+    public void OpenMonsterPlaceWindow()
+    {
+        _monsterPlaceWindow.SetActive(true);
     }
 
     public void OpenShopWindow()

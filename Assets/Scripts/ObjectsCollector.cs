@@ -8,6 +8,8 @@ public class ObjectsCollector : MonoBehaviour
     public GameObject MainGate;
 
     public GameObject HeroPlaceWindow;
+    public GameObject MonsterPlaceWindow;
+
     public GameObject ShopWindow;
 
     [HideInInspector]
