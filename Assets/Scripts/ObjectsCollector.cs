@@ -8,6 +8,7 @@ public class ObjectsCollector : MonoBehaviour
     public GameObject MainGate;
 
     public GameObject HeroPlaceWindow;
+    public GameObject ShopWindow;
 
     [HideInInspector]
     public MainGateScript mainGateScript;
@@ -17,11 +18,5 @@ public class ObjectsCollector : MonoBehaviour
     void Start()
     {
         mainGateScript = MainGate.GetComponent<MainGateScript>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
