@@ -1504,8 +1504,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3879864987677307078, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
       propertyPath: m_Name
-      value: CellGate1LVL (4)
+      value: CellGateLVL6
       objectReference: {fileID: 0}
+    - target: {fileID: 3879864987677307078, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510272709567233116, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 404144513}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1744,6 +1752,7 @@ GameObject:
   - component: {fileID: 285242889}
   - component: {fileID: 285242888}
   - component: {fileID: 285242887}
+  - component: {fileID: 285242890}
   m_Layer: 5
   m_Name: ResourcesPanel
   m_TagString: Untagged
@@ -1839,6 +1848,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285242885}
   m_CullTransparentMesh: 1
+--- !u!114 &285242890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285242885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e985d19a494d544a6bc9ff24b7a989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 404144513}
+  CoinsPerSecondText: {fileID: 1838079194}
+  CoinsText: {fileID: 271986556}
+  GemsText: {fileID: 1003072168}
+  FearText: {fileID: 1883489060}
+  PopularityText: {fileID: 1937912123}
 --- !u!4 &291059339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6181508083411149482, guid: 25266bf29de1b1f4c84d0a509d0edb16, type: 3}
@@ -2248,7 +2275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoinsPerSecond: 0
-  Coins: 0
+  Coins: 9999
   Gems: 0
   Fear: 0
   Popularity: 0
@@ -2792,7 +2819,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.050909
+  orthographic size: 4.2509093
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3395,8 +3422,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3879864987677307078, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
       propertyPath: m_Name
-      value: CellGate1LVL (1)
+      value: CellGateLVL3
       objectReference: {fileID: 0}
+    - target: {fileID: 3879864987677307078, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510272709567233116, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
+      propertyPath: Price
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510272709567233116, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 404144513}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3603,8 +3642,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3879864987677307078, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
       propertyPath: m_Name
-      value: CellGate1LVL (3)
+      value: CellGateLVL5
       objectReference: {fileID: 0}
+    - target: {fileID: 3879864987677307078, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510272709567233116, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 404144513}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19765,6 +19812,53 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &616502388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 616502390}
+  - component: {fileID: 616502389}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &616502389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616502388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6bd7f550a8e2445b905e0d51b25675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTouchOrClickDetected:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &616502390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616502388}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &642106215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20809,8 +20903,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3879864987677307078, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
       propertyPath: m_Name
-      value: CellGate1LVL (2)
+      value: CellGateLVL4
       objectReference: {fileID: 0}
+    - target: {fileID: 3879864987677307078, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510272709567233116, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 404144513}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22140,8 +22242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -1.7304688}
+  m_SizeDelta: {x: 0, y: -492.5388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1012022778
 MonoBehaviour:
@@ -108147,14 +108249,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 974698656}
     m_Modifications:
-    - target: {fileID: 620876489519148660, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b4dd73b1f59374a4a9a3d02c73af0b4b, type: 3}
-    - target: {fileID: 3119897691901090023, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3879864987677307073, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.28
@@ -108197,8 +108291,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3879864987677307078, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
       propertyPath: m_Name
-      value: CellGate1LVL
+      value: CellGateLVL2
       objectReference: {fileID: 0}
+    - target: {fileID: 6510272709567233116, guid: f9a6e3877e3205f4b9825001dd81287c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 404144513}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -108803,3 +108901,4 @@ SceneRoots:
   - {fileID: 604090205}
   - {fileID: 774575182}
   - {fileID: 1627405381}
+  - {fileID: 616502390}

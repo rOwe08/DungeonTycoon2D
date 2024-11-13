@@ -4,33 +4,20 @@ using UnityEngine;
 
 public class HeroPlaceScript : MonoBehaviour
 {
-    private Camera _mainCamera;
-
     public Hero HeroAssigned;
 
-    void Start()
+    private void OnEnable()
     {
-        _mainCamera = Camera.main;
+        InputManager.Instance.OnTouchOrClickDetected.AddListener(HandleTouchOrClick);
     }
 
-    void Update()
+    private void OnDisable()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            DetectClickOrTouch(Input.mousePosition);
-        }
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) 
-        {
-            DetectClickOrTouch(Input.GetTouch(0).position);
-        }
+        InputManager.Instance.OnTouchOrClickDetected.RemoveListener(HandleTouchOrClick);
     }
 
-    void DetectClickOrTouch(Vector3 inputPosition)
+    private void HandleTouchOrClick(Vector3 worldPosition)
     {
-        Vector3 worldPosition = _mainCamera.ScreenToWorldPoint(inputPosition);
-        worldPosition.z = 0;
-
         Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
         if (hitCollider != null && hitCollider.gameObject == gameObject)
         {
@@ -38,5 +25,4 @@ public class HeroPlaceScript : MonoBehaviour
             UIManager.Instance.OpenHeroPlaceWindow(heroToAssign);
         }
     }
-
 }

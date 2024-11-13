@@ -1,17 +1,17 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterPlaceScript : MonoBehaviour
+public class UnlockButton : MonoBehaviour
 {
-    public Monster MonsterAssigned;
+    public GameObject ButtonToReveal;
 
     private void OnEnable()
     {
         InputManager.Instance.OnTouchOrClickDetected.AddListener(HandleTouchOrClick);
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         InputManager.Instance.OnTouchOrClickDetected.RemoveListener(HandleTouchOrClick);
     }
@@ -21,8 +21,7 @@ public class MonsterPlaceScript : MonoBehaviour
         Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
         if (hitCollider != null && hitCollider.gameObject == gameObject)
         {
-            Monster monsterAssigned = MonsterAssigned ?? new Monster { Name = "rOwe" };
-            UIManager.Instance.OpenMonsterPlaceWindow(monsterAssigned);
+            ButtonToReveal.SetActive(!ButtonToReveal.activeSelf);
         }
     }
 }

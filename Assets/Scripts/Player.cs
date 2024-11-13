@@ -27,4 +27,29 @@ public class Player : MonoBehaviour
     {
         
     }
+
+    public void OnCoinsPerSecondChange(int amountToAdd)
+    {
+        CoinsPerSecond += amountToAdd;
+    }
+
+    public void OnCoinsChange(int amountToAdd)
+    {
+        Coins += amountToAdd;
+    }
+
+    public void OnGemsChange(int amountToAdd)
+    {
+        Gems += amountToAdd;
+    }
+
+    public void OnFearChange(int amountToAdd)
+    {
+        Fear += amountToAdd;
+    }
+
+    public void OnPopularityChange(int amountToAdd)
+    {
+        Popularity += amountToAdd;
+    
 }
