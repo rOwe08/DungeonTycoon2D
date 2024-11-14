@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public UnityEvent<NPC> OnNPCAssigned;
+    public MonsterPlaceScript chosenMonsterPlaceScript;
+    public HeroPlaceScript chosenHeroPlaceScript;
 
     private void Awake()
     {
@@ -24,6 +25,13 @@ public class GameManager : MonoBehaviour
 
     public void AssignNPC(NPC npc)
     {
-        OnNPCAssigned?.Invoke(npc);
+        if (npc is Hero hero)
+        {
+            chosenHeroPlaceScript.HandleNPCAssignment(npc);
+        }
+        else if (npc is Monster monster)
+        {
+            chosenMonsterPlaceScript.HandleNPCAssignment(npc);
+        }
     }
 }

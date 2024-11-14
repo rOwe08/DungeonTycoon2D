@@ -5,18 +5,39 @@ using UnityEngine;
 public class HeroPlaceScript : MonoBehaviour
 {
     public Hero HeroAssigned;
+    private GameObject _spawnedHero;
+
     public GameObject CameraPoint;
+    public Transform SpawnPoint;
 
     private void Start()
     {
         InputManager.Instance.OnTouchOrClickDetected.AddListener(HandleTouchOrClick);
-        GameManager.Instance.OnNPCAssigned.AddListener(HandleNPCAssignment);
     }
 
     private void OnDisable()
     {
         InputManager.Instance.OnTouchOrClickDetected.RemoveListener(HandleTouchOrClick);
-        GameManager.Instance.OnNPCAssigned.RemoveListener(HandleNPCAssignment);
+    }
+
+    public void HandleNPCAssignment(NPC npc)
+    {
+        if (npc is Hero hero)
+        {
+            HeroAssigned = hero;
+            SpawnHero(HeroAssigned);
+        }
+
+        if (HeroAssigned != null) 
+        {
+            this.transform.Find("MainImage").gameObject.SetActive(false);
+            this.transform.Find("BoarderImage").gameObject.SetActive(false);
+        }
+        else
+        {
+            this.transform.Find("MainImage").gameObject.SetActive(true);
+            this.transform.Find("BoarderImage").gameObject.SetActive(true);
+        }
     }
 
     private void HandleTouchOrClick(Vector3 worldPosition)
@@ -24,18 +45,47 @@ public class HeroPlaceScript : MonoBehaviour
         Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
         if (hitCollider != null && hitCollider.gameObject == gameObject)
         {
-            Hero heroToAssign = HeroAssigned ?? new Hero { Name = "rowe" };
-            UIManager.Instance.OpenHeroPlaceWindow(heroToAssign);
+            if (HeroAssigned is null) 
+            { 
+                HeroAssigned = HeroAssigned ?? new Hero { Name = string.Empty };
+            }
 
-            //CameraManager.Instance.MoveCameraToPoint(CameraPoint.transform);
+            GameManager.Instance.chosenHeroPlaceScript = GetComponent<HeroPlaceScript>();
+            UIManager.Instance.OpenHeroPlaceWindow(HeroAssigned);
+
+            // CameraManager.Instance.MoveCameraToPoint(CameraPoint.transform);
         }
     }
 
-    private void HandleNPCAssignment(NPC npc)
+    public void SpawnHero(Hero hero)
     {
-        if (npc is Hero hero)
+        GameObject[] allHeroPrefabs = Resources.LoadAll<GameObject>("Prefabs/HeroesPrefabs");
+
+        GameObject heroPrefabToSpawn = null;
+
+        foreach (GameObject heroPrefab in allHeroPrefabs)
         {
-            HeroAssigned = hero;
+            Hero heroComponent = heroPrefab.GetComponent<Hero>();
+
+            if (heroComponent != null && heroComponent.Name == hero.Name)
+            {
+                heroPrefabToSpawn = heroPrefab;
+                break;
+            }
+        }
+
+        if (heroPrefabToSpawn != null)
+        {
+            if (_spawnedHero is not null)
+            {
+                Destroy(_spawnedHero);
+            }
+
+            _spawnedHero = Instantiate(heroPrefabToSpawn, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("Hero prefab with name " + hero.Name + " not found in folder.");
         }
     }
 }
