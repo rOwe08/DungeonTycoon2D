@@ -56,7 +56,7 @@ public class UIManager : MonoBehaviour
         _npcPlacedButtons = new List<GameObject>();
     }
 
-    private void PrepareNPCPlaceWindow(NPC npcAssigned)
+    public void UpdateNPCPlaceWindow(NPC npcAssigned)
     {
         foreach(GameObject button in _npcPlacedButtons)
         {
@@ -82,7 +82,8 @@ public class UIManager : MonoBehaviour
             GameObject npcButton = Instantiate(_ownedNpcButtonPrefab, _npcPlaceVerticalLayoutPanel.transform);
             _npcPlacedButtons.Add(npcButton);
 
-            npcButton.transform.Find("NPCOwnedNameText").GetComponent<TextMeshProUGUI>().text = npcToShow.Name;
+            npcButton.GetComponent<NPCOwnedButton>().npcAttached = npcToShow;
+            npcButton.GetComponent<NPCOwnedButton>().InitializeButton();
         }
 
         if (string.IsNullOrEmpty(npcAssigned.Name))
@@ -105,13 +106,13 @@ public class UIManager : MonoBehaviour
 
     public void OpenHeroPlaceWindow(Hero heroAssigned)
     {
-        PrepareNPCPlaceWindow(heroAssigned);
+        UpdateNPCPlaceWindow(heroAssigned);
         _npcPlaceWindow.SetActive(true);
     }
 
     public void OpenMonsterPlaceWindow(Monster monsterAssigned)
     {
-        PrepareNPCPlaceWindow(monsterAssigned);
+        UpdateNPCPlaceWindow(monsterAssigned);
         _npcPlaceWindow.SetActive(true);
     }
 

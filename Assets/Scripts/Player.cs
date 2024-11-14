@@ -16,13 +16,6 @@ public class Player : MonoBehaviour
     public List<Hero> HeroesOwned;
     public List<Monster> MonstersOwned;
 
-
-    private void Start()
-    {
-        HeroesOwned.Add(new Hero { Name = "Igor" });
-        HeroesOwned.Add(new Hero { Name = "Kinannn" });
-        HeroesOwned.Add(new Hero { Name = "Airat" });
-    }
     public void OnCoinsPerSecondChange(int amountToAdd)
     {
         CoinsPerSecond += amountToAdd;

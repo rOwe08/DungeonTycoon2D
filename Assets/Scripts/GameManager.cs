@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    public UnityEvent<NPC> OnNPCAssigned;
 
     private void Awake()
     {
@@ -17,5 +20,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void AssignNPC(NPC npc)
+    {
+        OnNPCAssigned?.Invoke(npc);
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
@@ -31,20 +32,23 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            _touchHandled = true;
-            DetectClickOrTouch(Input.GetTouch(0).position);
-        }
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                _touchHandled = true;
+                DetectClickOrTouch(Input.GetTouch(0).position);
+            }
 
-        if (Input.GetMouseButtonDown(0) && !_touchHandled)
-        {
-            DetectClickOrTouch(Input.mousePosition);
-        }
+            if (Input.GetMouseButtonDown(0) && !_touchHandled)
+            {
+                DetectClickOrTouch(Input.mousePosition);
+            }
 
-        if (Input.touchCount == 0)
-        {
-            _touchHandled = false;
+            if (Input.touchCount == 0)
+            {
+                _touchHandled = false;
+            }
         }
     }
 
