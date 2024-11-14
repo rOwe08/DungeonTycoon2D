@@ -117,9 +117,9 @@ GameObject:
   - component: {fileID: 8917260591825364322}
   - component: {fileID: 4383830107191969526}
   - component: {fileID: 9089808926275877789}
-  - component: {fileID: 8559837798730102753}
+  - component: {fileID: 3879045290181287075}
   m_Layer: 0
-  m_Name: CreaturePlace
+  m_Name: MonsterPlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,7 +229,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8559837798730102753
+--- !u!114 &3879045290181287075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,11 +238,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1657976472995663081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 236e5b4ffdd041746a2e30606142df26, type: 3}
+  m_Script: {fileID: 11500000, guid: 38bb2fb144b629d4582ca7fdb551775f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterAssigned: {fileID: 0}
+  AssignedNPC: {fileID: 0}
   CameraPoint: {fileID: 2241046962289303578}
+  SpawnPoint: {fileID: 0}
 --- !u!1 &1755957337713019615
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +370,7 @@ GameObject:
   - component: {fileID: 5954550988617537578}
   - component: {fileID: 3097101477074341241}
   - component: {fileID: 5711645453552499347}
-  - component: {fileID: 1889515584524246412}
+  - component: {fileID: 8544029670068555828}
   m_Layer: 0
   m_Name: HeroPlace
   m_TagString: Untagged
@@ -481,7 +482,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1889515584524246412
+--- !u!114 &8544029670068555828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -490,11 +491,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4123408153810399380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 465b781833dee104c9923b62d522a34f, type: 3}
+  m_Script: {fileID: 11500000, guid: 38bb2fb144b629d4582ca7fdb551775f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeroAssigned: {fileID: 0}
+  AssignedNPC: {fileID: 0}
   CameraPoint: {fileID: 2241046962289303578}
+  SpawnPoint: {fileID: 0}
 --- !u!1 &6656781628614640584
 GameObject:
   m_ObjectHideFlags: 0

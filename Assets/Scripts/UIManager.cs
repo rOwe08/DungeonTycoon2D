@@ -69,15 +69,17 @@ public class UIManager : MonoBehaviour
         {
             _npcPlaceTitleText.GetComponent<TextMeshProUGUI>().text = "HERO";
             npcList = _objectsCollector.Player.HeroesOwned.Cast<NPC>().ToList();
+            // - heroes on places
 
         }
         else if (npcAssigned.GetType() == typeof(Monster))
         {
             _npcPlaceTitleText.GetComponent<TextMeshProUGUI>().text = "MONSTER";
             npcList = _objectsCollector.Player.MonstersOwned.Cast<NPC>().ToList();
+            // - monsters on places
         }
 
-        foreach(NPC npcToShow in npcList)
+        foreach (NPC npcToShow in npcList)
         {
             GameObject npcButton = Instantiate(_ownedNpcButtonPrefab, _npcPlaceVerticalLayoutPanel.transform);
             _npcPlacedButtons.Add(npcButton);
@@ -103,16 +105,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
-    public void OpenHeroPlaceWindow(Hero heroAssigned)
+    public void OpenNPCPlaceWindow(NPC npcAssigned)
     {
-        UpdateNPCPlaceWindow(heroAssigned);
-        _npcPlaceWindow.SetActive(true);
-    }
-
-    public void OpenMonsterPlaceWindow(Monster monsterAssigned)
-    {
-        UpdateNPCPlaceWindow(monsterAssigned);
+        UpdateNPCPlaceWindow(npcAssigned);
         _npcPlaceWindow.SetActive(true);
     }
 

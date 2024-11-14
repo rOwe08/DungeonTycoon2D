@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ResourcesUIScript : MonoBehaviour
 {
@@ -12,7 +13,14 @@ public class ResourcesUIScript : MonoBehaviour
     public TextMeshProUGUI FearText;
     public TextMeshProUGUI PopularityText;
 
+
     private void Start()
+    {
+        UpdateResourcesPanel();
+        player.OnResourcesChanged.AddListener(UpdateResourcesPanel);
+    }
+
+    public void UpdateResourcesPanel()
     {
         CoinsPerSecondText.text = player.CoinsPerSecond.ToString();
         CoinsText.text = player.Coins.ToString(); ;

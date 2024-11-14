@@ -7,8 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public MonsterPlaceScript chosenMonsterPlaceScript;
-    public HeroPlaceScript chosenHeroPlaceScript;
+    public NPCPlaceScript chosenNPCPlaceScript;
 
     private void Awake()
     {
@@ -25,13 +24,6 @@ public class GameManager : MonoBehaviour
 
     public void AssignNPC(NPC npc)
     {
-        if (npc is Hero hero)
-        {
-            chosenHeroPlaceScript.HandleNPCAssignment(npc);
-        }
-        else if (npc is Monster monster)
-        {
-            chosenMonsterPlaceScript.HandleNPCAssignment(npc);
-        }
+        chosenNPCPlaceScript.HandleNPCAssignment(npc);
     }
 }
