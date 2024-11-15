@@ -1166,6 +1166,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7872599652125745478, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 404144513}
     - target: {fileID: 9024922583541840125, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       propertyPath: m_Name
       value: LevelArea5
@@ -1294,6 +1298,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7872599652125745478, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 404144513}
     - target: {fileID: 9024922583541840125, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       propertyPath: m_Name
       value: LevelArea6
@@ -2072,11 +2080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da19c36e5917e1e469842722b400b14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinsPerSecond: 0
-  Coins: 9999
-  Gems: 0
-  Fear: 0
-  Popularity: 0
   Level: 0
   XP: 0
   HeroesOwned:
@@ -2752,7 +2755,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.050909
+  orthographic size: 3.490909
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -19738,6 +19741,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7872599652125745478, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 404144513}
     - target: {fileID: 9024922583541840125, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       propertyPath: m_Name
       value: LevelArea3
@@ -20219,6 +20226,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7872599652125745478, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 404144513}
     - target: {fileID: 9024922583541840125, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       propertyPath: m_Name
       value: LevelArea4
@@ -20620,6 +20631,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7872599652125745478, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 404144513}
     - target: {fileID: 9024922583541840125, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       propertyPath: m_Name
       value: LevelArea2
@@ -107017,6 +107032,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7872599652125745478, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 404144513}
     - target: {fileID: 9024922583541840125, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       propertyPath: m_Name
       value: LevelArea1
@@ -107024,7 +107043,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4274899933172231659, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

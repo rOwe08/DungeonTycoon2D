@@ -22,10 +22,10 @@ public class ResourcesUIScript : MonoBehaviour
 
     public void UpdateResourcesPanel()
     {
-        CoinsPerSecondText.text = player.CoinsPerSecond.ToString();
-        CoinsText.text = player.Coins.ToString(); ;
-        GemsText.text = player.Gems.ToString(); ;
-        FearText.text = player.Fear.ToString(); ;
-        PopularityText.text = player.Popularity.ToString(); ;
+        CoinsPerSecondText.text = player.GetResource(ResourceType.CoinsPerSecond).Amount.ToString();
+        CoinsText.text = player.GetResource(ResourceType.Coins).Amount.ToString();
+        GemsText.text = player.GetResource(ResourceType.Gems).Amount.ToString();
+        FearText.text = player.GetResource(ResourceType.Fear).Amount.ToString();
+        PopularityText.text = player.GetResource(ResourceType.Popularity).Amount.ToString();
     }
 }

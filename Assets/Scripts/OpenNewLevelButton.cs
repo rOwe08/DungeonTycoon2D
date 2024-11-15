@@ -32,7 +32,7 @@ public class OpenNewLevelButton : MonoBehaviour
         Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
         if (hitCollider != null && hitCollider.gameObject == gameObject)
         {
-            if (player.Coins >= Price)
+            if (player.GetResource(ResourceType.Coins).Amount >= Price)
             {
                 CellGate.GetComponent<Animator>().SetBool("IsOpening", true);
 
