@@ -7,12 +7,13 @@ public class NPCPlaceScript : MonoBehaviour
     public NPC AssignedNPC;
     public GameObject CameraPoint;
     private GameObject _spawnedNPC;
-    public Transform SpawnPoint;
 
     private bool isHeroPlace;
+    private Animator npcAnimator;
 
     private void Start()
     {
+        // Determine if this place is for a hero or a monster
         if (gameObject.name.ToLower().Contains("hero"))
         {
             isHeroPlace = true;
@@ -21,18 +22,37 @@ public class NPCPlaceScript : MonoBehaviour
         {
             isHeroPlace = false;
         }
-        else
-        {
-            Debug.LogError("NPCPlaceScript: Object name should contain 'Hero' or 'Monster'.");
-            return;
-        }
 
         InputManager.Instance.OnTouchOrClickDetected.AddListener(HandleTouchOrClick);
+
+        if (_spawnedNPC != null)
+        {
+            npcAnimator = _spawnedNPC.GetComponent<Animator>();  // Get Animator for the spawned NPC
+        }
     }
 
     private void OnDisable()
     {
         InputManager.Instance.OnTouchOrClickDetected.RemoveListener(HandleTouchOrClick);
+    }
+
+    // Set NPC state (attacking or waiting)
+    public void SetNPCState(bool isAttacking)
+    {
+        if (npcAnimator != null)
+        {
+            npcAnimator.SetBool("IsAttacking", isAttacking);  // Set attack animation flag
+            npcAnimator.SetBool("IsWaiting", !isAttacking);   // If not attacking, switch to waiting state
+        }
+    }
+
+    // Set NPC hurting state
+    public void SetHurtingState(bool isHurting)
+    {
+        if (npcAnimator != null)
+        {
+            npcAnimator.SetBool("IsHurting", isHurting);  // Set hurting animation flag
+        }
     }
 
     public void HandleNPCAssignment(NPC npc)
@@ -93,6 +113,9 @@ public class NPCPlaceScript : MonoBehaviour
 
             Quaternion spawnRotation = isHeroPlace ? Quaternion.identity : Quaternion.Euler(0, -180, 0);
             _spawnedNPC = Instantiate(npcPrefabToSpawn, transform.position, spawnRotation);
+
+            // Get Animator component for the spawned NPC
+            npcAnimator = _spawnedNPC.GetComponent<Animator>();
         }
         else
         {

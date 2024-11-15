@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a92afeb404c50744b52e5b101632c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Crab
   BaseLevel: 1
   BasePower: 217
   CurrentLevel: 0
