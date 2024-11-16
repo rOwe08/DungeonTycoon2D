@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -54,6 +55,11 @@ public class UIManager : MonoBehaviour
         _shopWindow = _objectsCollector.ShopWindow;
 
         _npcPlacedButtons = new List<GameObject>();
+
+        _npcAssignedPanel.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            GameManager.Instance.DetachNPC();
+        });
     }
 
     public void UpdateNPCPlaceWindow(NPC npcAssigned)

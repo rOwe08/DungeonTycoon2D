@@ -26,4 +26,15 @@ public class GameManager : MonoBehaviour
     {
         chosenNPCPlaceScript.HandleNPCAssignment(npc);
     }
+
+    public void DetachNPC()
+    {
+        chosenNPCPlaceScript.HandleNPCAssignment(null);
+        chosenNPCPlaceScript.RemoveAssignedNPC();
+
+        bool isHeroPlace = chosenNPCPlaceScript.isHeroPlace;
+
+        NPC AssignedNPC = isHeroPlace ? new Hero { Name = string.Empty } : new Monster { Name = string.Empty };
+        UIManager.Instance.UpdateNPCPlaceWindow(AssignedNPC);
+    }
 }

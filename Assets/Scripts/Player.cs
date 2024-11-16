@@ -23,12 +23,12 @@ public class Player : MonoBehaviour
         // TODO: LOAD SYSTEM
         resources = new List<Resource>()
         {
-            new Resource(ResourceType.CoinsPerSecond, 0),    // Default 0 popularity
-            new Resource(ResourceType.Coins, 100),       // Default 100 coins
-            new Resource(ResourceType.Gems, 50),         // Default 50 gems
-            new Resource(ResourceType.Fear, 0),          // Default 0 fear
-            new Resource(ResourceType.Popularity, 0),    // Default 0 popularity
-            new Resource(ResourceType.XP, 0)             // Default 0 XP
+            new Resource(ResourceType.CoinsPerSecond, 0),    
+            new Resource(ResourceType.Coins, 10000),    
+            new Resource(ResourceType.Gems, 50),         
+            new Resource(ResourceType.Fear, 0),          
+            new Resource(ResourceType.Popularity, 0),    
+            new Resource(ResourceType.XP, 0)             
         };
     }
 

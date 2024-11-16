@@ -8,8 +8,8 @@ public class NPCPlaceScript : MonoBehaviour
     public GameObject CameraPoint;
     private GameObject _spawnedNPC;
 
-    private bool isHeroPlace;
-    private Animator npcAnimator;
+    public bool isHeroPlace;
+    private Animator _npcAnimator;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class NPCPlaceScript : MonoBehaviour
 
         if (_spawnedNPC != null)
         {
-            npcAnimator = _spawnedNPC.GetComponent<Animator>();  // Get Animator for the spawned NPC
+            _npcAnimator = _spawnedNPC.GetComponent<Animator>();  // Get Animator for the spawned NPC
         }
     }
 
@@ -39,19 +39,19 @@ public class NPCPlaceScript : MonoBehaviour
     // Set NPC state (attacking or waiting)
     public void SetNPCState(bool isAttacking)
     {
-        if (npcAnimator != null)
+        if (_npcAnimator != null)
         {
-            npcAnimator.SetBool("IsAttacking", isAttacking);  // Set attack animation flag
-            npcAnimator.SetBool("IsWaiting", !isAttacking);   // If not attacking, switch to waiting state
+            _npcAnimator.SetBool("IsAttacking", isAttacking);  // Set attack animation flag
+            _npcAnimator.SetBool("IsWaiting", !isAttacking);   // If not attacking, switch to waiting state
         }
     }
 
     // Set NPC hurting state
     public void SetHurtingState(bool isHurting)
     {
-        if (npcAnimator != null)
+        if (_npcAnimator != null)
         {
-            npcAnimator.SetBool("IsHurting", isHurting);  // Set hurting animation flag
+            _npcAnimator.SetBool("IsHurting", isHurting);  // Set hurting animation flag
         }
     }
 
@@ -115,11 +115,15 @@ public class NPCPlaceScript : MonoBehaviour
             _spawnedNPC = Instantiate(npcPrefabToSpawn, transform.position, spawnRotation);
 
             // Get Animator component for the spawned NPC
-            npcAnimator = _spawnedNPC.GetComponent<Animator>();
+            _npcAnimator = _spawnedNPC.GetComponent<Animator>();
         }
         else
         {
             Debug.LogError($"{(isHeroPlace ? "Hero" : "Monster")} prefab with name {npc.Name} not found in folder {folderPath}.");
         }
+    }
+    public void RemoveAssignedNPC()
+    {
+        Destroy(_spawnedNPC);
     }
 }
