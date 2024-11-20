@@ -9,7 +9,7 @@ public class NPCPlaceScript : MonoBehaviour
     private GameObject _spawnedNPC;
 
     public bool isHeroPlace;
-    private Animator _npcAnimator;
+    public Animator npcAnimator;
 
     private void Start()
     {
@@ -27,32 +27,13 @@ public class NPCPlaceScript : MonoBehaviour
 
         if (_spawnedNPC != null)
         {
-            _npcAnimator = _spawnedNPC.GetComponent<Animator>();  // Get Animator for the spawned NPC
+            npcAnimator = _spawnedNPC.GetComponent<Animator>();  // Get Animator for the spawned NPC
         }
     }
 
     private void OnDisable()
     {
         InputManager.Instance.OnTouchOrClickDetected.RemoveListener(HandleTouchOrClick);
-    }
-
-    // Set NPC state (attacking or waiting)
-    public void SetNPCState(bool isAttacking)
-    {
-        if (_npcAnimator != null)
-        {
-            _npcAnimator.SetBool("IsAttacking", isAttacking);  // Set attack animation flag
-            _npcAnimator.SetBool("IsWaiting", !isAttacking);   // If not attacking, switch to waiting state
-        }
-    }
-
-    // Set NPC hurting state
-    public void SetHurtingState(bool isHurting)
-    {
-        if (_npcAnimator != null)
-        {
-            _npcAnimator.SetBool("IsHurting", isHurting);  // Set hurting animation flag
-        }
     }
 
     public void HandleNPCAssignment(NPC npc)
@@ -115,7 +96,7 @@ public class NPCPlaceScript : MonoBehaviour
             _spawnedNPC = Instantiate(npcPrefabToSpawn, transform.position, spawnRotation);
 
             // Get Animator component for the spawned NPC
-            _npcAnimator = _spawnedNPC.GetComponent<Animator>();
+            npcAnimator = _spawnedNPC.GetComponent<Animator>();
         }
         else
         {

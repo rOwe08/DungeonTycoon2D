@@ -12,50 +12,46 @@ public class LevelManager : MonoBehaviour
     public Player player;
 
     private bool isHeroTurn = true;
-    public float attackDuration = 1.5f;  // Duration of attack animation
-    public float hurtDuration = 1f;      // Duration of hurt animation
+    private bool isBattleInitialized = false;
+
     public int coinsRewardPerSecond = 5;
     public int popularityRewardPerSecond = 2;
 
-    private int totalCoins;  // Счетчик для накопленных монет
-    private int totalPopularity;  // Счетчик для накопленной популярности
+    private int totalCoins;
+    private int totalPopularity;
 
     void Start()
     {
-        collectRewardsButton.SetActive(false);  // Скрыть кнопку до начала боя
-
-        // Добавляем обработчик нажатия на collectRewardsButton
+        collectRewardsButton.SetActive(false);
         AddClickHandlerToCollectButton();
-
         StartCoroutine(InitializeAndStartBattle());
     }
 
-    // Добавляем обработчик клика
     void AddClickHandlerToCollectButton()
     {
         if (collectRewardsButton != null)
         {
-            // Добавляем скрипт, который будет обрабатывать нажатия
             collectRewardsButton.AddComponent<CollectRewardsHandler>().levelManager = this;
         }
     }
 
-    // Coroutine to initialize NPCs and start the battle
     IEnumerator InitializeAndStartBattle()
     {
-        // Wait until both hero and monster have been assigned
-        while (heroPlaceScript.AssignedNPC == null || monsterPlaceScript.AssignedNPC == null)
+        // Ждем назначения обоих NPC
+        while (heroPlaceScript.AssignedNPC == null || monsterPlaceScript.AssignedNPC == null ||
+               heroPlaceScript.npcAnimator == null || monsterPlaceScript.npcAnimator == null)
         {
-            yield return null;  // Continue waiting if NPCs are not yet assigned
+            yield return null;
         }
 
-        // Once NPCs are assigned, show the collect button and start the battle sequence
+        isBattleInitialized = true;
+
+        // Показываем кнопку сбора наград и начинаем бой
         collectRewardsButton.SetActive(true);
         StartCoroutine(BattleSequence());
         StartCoroutine(RewardAccumulation());
     }
 
-    // Coroutine to manage alternating attacks
     IEnumerator BattleSequence()
     {
         while (heroPlaceScript.AssignedNPC != null && monsterPlaceScript.AssignedNPC != null)
@@ -63,30 +59,86 @@ public class LevelManager : MonoBehaviour
             if (isHeroTurn)
             {
                 // Hero attacks, monster gets hurt
-                heroPlaceScript.SetNPCState(isAttacking: true);  // Hero attacks
-                monsterPlaceScript.SetHurtingState(isHurting: true);  // Monster gets hurt
-
-                yield return new WaitForSeconds(attackDuration);  // Wait for the duration of attack
-                heroPlaceScript.SetNPCState(isAttacking: false);  // End hero's attack
-                monsterPlaceScript.SetHurtingState(isHurting: false);  // End monster's hurt state
+                yield return StartCoroutine(PlayAnimation(heroPlaceScript.npcAnimator, "atk", monsterPlaceScript.npcAnimator, "hurt"));
             }
             else
             {
                 // Monster attacks, hero gets hurt
-                monsterPlaceScript.SetNPCState(isAttacking: true);  // Monster attacks
-                heroPlaceScript.SetHurtingState(isHurting: true);  // Hero gets hurt
-
-                yield return new WaitForSeconds(attackDuration);  // Wait for the duration of attack
-                monsterPlaceScript.SetNPCState(isAttacking: false);  // End monster's attack
-                heroPlaceScript.SetHurtingState(isHurting: false);  // End hero's hurt state
+                yield return StartCoroutine(PlayAnimation(monsterPlaceScript.npcAnimator, "atk", heroPlaceScript.npcAnimator, "hurt"));
             }
 
-            isHeroTurn = !isHeroTurn;  // Switch turn
-            yield return new WaitForSeconds(hurtDuration);  // Short delay between attacks
+            isHeroTurn = !isHeroTurn;  // Меняем ход
+            yield return new WaitForSeconds(0.5f);  // Короткая задержка между ударами
         }
     }
 
-    // Coroutine to accumulate rewards over time
+    IEnumerator PlayAnimation(Animator attackerAnimator, string attackAnimPrefix, Animator receiverAnimator, string hurtAnimPrefix)
+    {
+        string attackAnimationName = GetAnimationName(attackerAnimator, attackAnimPrefix);
+        string hurtAnimationName = GetAnimationName(receiverAnimator, hurtAnimPrefix);
+
+        if (!string.IsNullOrEmpty(attackAnimationName) && !string.IsNullOrEmpty(hurtAnimationName))
+        {
+            // Отключаем зацикливание
+            DisableAnimationLoop(attackerAnimator, attackAnimationName);
+            DisableAnimationLoop(receiverAnimator, hurtAnimationName);
+
+            // Запускаем анимации атаки и получения урона одновременно
+            attackerAnimator.Play(attackAnimationName);
+            receiverAnimator.Play(hurtAnimationName);
+
+            // Определяем максимальную продолжительность между атакой и получением урона
+            float attackDuration = GetAnimationDuration(attackerAnimator, attackAnimationName);
+            float hurtDuration = GetAnimationDuration(receiverAnimator, hurtAnimationName);
+            float maxDuration = Mathf.Max(attackDuration, hurtDuration);
+
+            // Ждем завершения обеих анимаций
+            yield return new WaitForSeconds(maxDuration);
+
+            // Возвращаем аниматор в состояние "idle" после завершения анимаций
+            attackerAnimator.Play("idle");
+            receiverAnimator.Play("idle");
+        }
+    }
+
+    float GetAnimationDuration(Animator animator, string animationName)
+    {
+        RuntimeAnimatorController controller = animator.runtimeAnimatorController;
+        foreach (AnimationClip clip in controller.animationClips)
+        {
+            if (clip.name == animationName)
+            {
+                return clip.length;  // Возвращаем точную длину анимации
+            }
+        }
+        return 1f;  // Если анимация не найдена, возвращаем 1 секунду по умолчанию
+    }
+
+    void DisableAnimationLoop(Animator animator, string animationName)
+    {
+        RuntimeAnimatorController controller = animator.runtimeAnimatorController;
+        foreach (AnimationClip clip in controller.animationClips)
+        {
+            if (clip.name == animationName)
+            {
+                // Отключаем зацикливание
+                clip.wrapMode = WrapMode.Once;
+            }
+        }
+    }
+
+    string GetAnimationName(Animator animator, string prefix)
+    {
+        foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name.Contains(prefix))
+            {
+                return clip.name;  // Возвращаем первое совпадение по префиксу
+            }
+        }
+        return null;  // Если анимация не найдена
+    }
+
     IEnumerator RewardAccumulation()
     {
         while (heroPlaceScript.AssignedNPC != null && monsterPlaceScript.AssignedNPC != null)
@@ -94,7 +146,7 @@ public class LevelManager : MonoBehaviour
             totalCoins += coinsRewardPerSecond;
             totalPopularity += popularityRewardPerSecond;
 
-            yield return new WaitForSeconds(1f);  // Награда начисляется каждую секунду
+            yield return new WaitForSeconds(1f);
         }
     }
 

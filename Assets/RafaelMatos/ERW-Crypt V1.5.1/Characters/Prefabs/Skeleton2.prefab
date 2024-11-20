@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5325237869395428286}
   - component: {fileID: 5174971229811152677}
   - component: {fileID: 4113646177703774820}
-  - component: {fileID: 4695676817625300577}
   m_Layer: 0
   m_Name: Skeleton2
   m_TagString: Untagged
@@ -26,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710728383639801869}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5174971229811152677
 SpriteRenderer:
@@ -107,20 +106,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4695676817625300577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710728383639801869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f732531abe4b6447b9d341fcc664c19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Blood Skeleton
-  BaseLevel: 1
-  BasePower: 52
-  CurrentLevel: 0
-  CurrentPower: 0
