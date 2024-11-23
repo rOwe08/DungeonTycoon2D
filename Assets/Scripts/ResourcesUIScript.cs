@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class ResourcesUIScript : MonoBehaviour
 {
     public Player player;
-    public TextMeshProUGUI CoinsPerSecondText;
     public TextMeshProUGUI CoinsText;
     public TextMeshProUGUI GemsText;
     public TextMeshProUGUI FearText;
@@ -22,7 +21,6 @@ public class ResourcesUIScript : MonoBehaviour
 
     public void UpdateResourcesPanel()
     {
-        CoinsPerSecondText.text = player.GetResource(ResourceType.CoinsPerSecond).Amount.ToString();
         CoinsText.text = player.GetResource(ResourceType.Coins).Amount.ToString();
         GemsText.text = player.GetResource(ResourceType.Gems).Amount.ToString();
         FearText.text = player.GetResource(ResourceType.Fear).Amount.ToString();

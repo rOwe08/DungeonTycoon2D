@@ -150,8 +150,30 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void CollectRewards()
+public void CollectRewards()
+{
+    StartCoroutine(PlayRewardAnimations());
+}
+
+IEnumerator PlayRewardAnimations()
+{
+    Animator rewardButtonAnimator = collectRewardsButton.GetComponent<Animator>();
+
+    // Находим анимации с префиксами "h opening" и "h closing"
+    string openingAnimation = GetAnimationName(rewardButtonAnimator, "h opening");
+    string closingAnimation = GetAnimationName(rewardButtonAnimator, "h closing");
+
+    if (!string.IsNullOrEmpty(openingAnimation) && !string.IsNullOrEmpty(closingAnimation))
     {
+        // Запускаем анимацию "h opening"
+        rewardButtonAnimator.Play(openingAnimation);
+        yield return new WaitForSeconds(GetAnimationDuration(rewardButtonAnimator, openingAnimation));
+
+        // Запускаем анимацию "h closing"
+        rewardButtonAnimator.Play(closingAnimation);
+        yield return new WaitForSeconds(GetAnimationDuration(rewardButtonAnimator, closingAnimation));
+
+        // Применяем награды после завершения обеих анимаций
         player.OnCoinsChange(totalCoins);
         player.OnPopularityChange(totalPopularity);
 
@@ -159,4 +181,6 @@ public class LevelManager : MonoBehaviour
         totalCoins = 0;
         totalPopularity = 0;
     }
+}
+
 }

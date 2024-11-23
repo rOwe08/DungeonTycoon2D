@@ -22,8 +22,7 @@ public class Player : MonoBehaviour
     {
         // TODO: LOAD SYSTEM
         resources = new List<Resource>()
-        {
-            new Resource(ResourceType.CoinsPerSecond, 0),    
+        {  
             new Resource(ResourceType.Coins, 10000),    
             new Resource(ResourceType.Gems, 50),         
             new Resource(ResourceType.Fear, 0),          
@@ -72,11 +71,6 @@ public class Player : MonoBehaviour
     public void OnXPChange(int amountToAdd)
     {
         OnResourceChange(ResourceType.XP, amountToAdd);
-    }
-
-    public void OnCoinsPerSecondChange(int amountToAdd)
-    {
-        OnResourceChange(ResourceType.CoinsPerSecond, amountToAdd);
     }
 
     public Resource GetResource(ResourceType resourceType)
