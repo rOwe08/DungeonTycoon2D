@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class LevelManager : MonoBehaviour
 {
@@ -26,6 +27,12 @@ public class LevelManager : MonoBehaviour
 
     public int level = 0;
     public int costForNextLevel = 100;
+
+    public GameObject coinIconPrefab;  
+    public GameObject popularityIconPrefab; 
+
+    public Transform coinsTargetIcon;
+    public Transform popularityTargetIcon;
 
     void Start()
     {
@@ -186,7 +193,6 @@ public class LevelManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
-
     public void CollectRewards()
     {
         StartCoroutine(PlayRewardAnimations());
@@ -196,27 +202,47 @@ public class LevelManager : MonoBehaviour
     {
         Animator rewardButtonAnimator = collectRewardsButton.GetComponent<Animator>();
 
-        // Находим анимации с префиксами "h opening" и "h closing"
         string openingAnimation = GetAnimationName(rewardButtonAnimator, "h opening");
         string closingAnimation = GetAnimationName(rewardButtonAnimator, "h closing");
 
         if (!string.IsNullOrEmpty(openingAnimation) && !string.IsNullOrEmpty(closingAnimation))
         {
-            // Запускаем анимацию "h opening"
             rewardButtonAnimator.Play(openingAnimation);
             yield return new WaitForSeconds(GetAnimationDuration(rewardButtonAnimator, openingAnimation));
 
-            // Запускаем анимацию "h closing"
             rewardButtonAnimator.Play(closingAnimation);
             yield return new WaitForSeconds(GetAnimationDuration(rewardButtonAnimator, closingAnimation));
 
-            // Применяем награды после завершения обеих анимаций
+            // Применяем награды
             player.OnCoinsChange(totalCoins);
             player.OnPopularityChange(totalPopularity);
 
-            // Сбрасываем счетчики
+            // Создаем анимацию для иконок наград через DOTween
+            AnimateRewardIcons(totalCoins, coinsTargetIcon, coinIconPrefab);
+            AnimateRewardIcons(totalPopularity, popularityTargetIcon, popularityIconPrefab);
+
             totalCoins = 0;
             totalPopularity = 0;
+        }
+    }
+
+    void AnimateRewardIcons(int amount, Transform target, GameObject iconPrefab)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            // Создаем иконку ресурса на экране
+            GameObject icon = Instantiate(iconPrefab, collectRewardsButton.transform.position, Quaternion.identity, collectRewardsButton.transform);
+
+            // Делаем плавное движение иконки к цели с помощью DOTween
+            icon.transform.DOMove(target.position, 1f)
+                .SetEase(Ease.InOutQuad)     // Добавляем плавное ускорение/замедление
+                .OnComplete(() => Destroy(icon));  // Удаляем иконку после завершения анимации
+
+            // Дополнительно можно добавить анимацию прозрачности
+            icon.GetComponent<CanvasGroup>().DOFade(0, 1f);
+
+            // Интервал между появлением иконок
+            DOTween.Sequence().AppendInterval(0.1f);
         }
     }
 
