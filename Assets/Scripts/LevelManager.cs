@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameObject Decorations;
+
     public NPCPlaceScript heroPlaceScript;
     public NPCPlaceScript monsterPlaceScript;
+
+    public GameObject upgradeLevelAreaObject;
 
     public GameObject collectRewardsButton;
 
@@ -20,11 +24,44 @@ public class LevelManager : MonoBehaviour
     private int totalCoins;
     private int totalPopularity;
 
+    public int level = 0;
+    public int costForNextLevel = 100;
+
     void Start()
     {
         collectRewardsButton.SetActive(false);
         AddClickHandlerToCollectButton();
         StartCoroutine(InitializeAndStartBattle());
+    }
+
+    public void UpLevel()
+    {
+        // TODO: MAX LEVEL REACHED
+        
+        level++;
+        costForNextLevel += 50;
+
+        Debug.Log("Upgraded to level: " + level);
+
+        if (level % 10 == 0)
+        {
+            ActivateDecoration(level);
+        }
+    }
+
+    void ActivateDecoration(int level)
+    {
+        Transform decoration = Decorations.transform.Find(level.ToString());
+
+        if (decoration != null)
+        {
+            decoration.gameObject.SetActive(true);
+            Debug.Log("Activated decoration for level " + level);
+        }
+        else
+        {
+            Debug.LogWarning("Decoration for level " + level + " not found!");
+        }
     }
 
     void AddClickHandlerToCollectButton()
@@ -150,37 +187,37 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-public void CollectRewards()
-{
-    StartCoroutine(PlayRewardAnimations());
-}
-
-IEnumerator PlayRewardAnimations()
-{
-    Animator rewardButtonAnimator = collectRewardsButton.GetComponent<Animator>();
-
-    // Находим анимации с префиксами "h opening" и "h closing"
-    string openingAnimation = GetAnimationName(rewardButtonAnimator, "h opening");
-    string closingAnimation = GetAnimationName(rewardButtonAnimator, "h closing");
-
-    if (!string.IsNullOrEmpty(openingAnimation) && !string.IsNullOrEmpty(closingAnimation))
+    public void CollectRewards()
     {
-        // Запускаем анимацию "h opening"
-        rewardButtonAnimator.Play(openingAnimation);
-        yield return new WaitForSeconds(GetAnimationDuration(rewardButtonAnimator, openingAnimation));
-
-        // Запускаем анимацию "h closing"
-        rewardButtonAnimator.Play(closingAnimation);
-        yield return new WaitForSeconds(GetAnimationDuration(rewardButtonAnimator, closingAnimation));
-
-        // Применяем награды после завершения обеих анимаций
-        player.OnCoinsChange(totalCoins);
-        player.OnPopularityChange(totalPopularity);
-
-        // Сбрасываем счетчики
-        totalCoins = 0;
-        totalPopularity = 0;
+        StartCoroutine(PlayRewardAnimations());
     }
-}
+
+    IEnumerator PlayRewardAnimations()
+    {
+        Animator rewardButtonAnimator = collectRewardsButton.GetComponent<Animator>();
+
+        // Находим анимации с префиксами "h opening" и "h closing"
+        string openingAnimation = GetAnimationName(rewardButtonAnimator, "h opening");
+        string closingAnimation = GetAnimationName(rewardButtonAnimator, "h closing");
+
+        if (!string.IsNullOrEmpty(openingAnimation) && !string.IsNullOrEmpty(closingAnimation))
+        {
+            // Запускаем анимацию "h opening"
+            rewardButtonAnimator.Play(openingAnimation);
+            yield return new WaitForSeconds(GetAnimationDuration(rewardButtonAnimator, openingAnimation));
+
+            // Запускаем анимацию "h closing"
+            rewardButtonAnimator.Play(closingAnimation);
+            yield return new WaitForSeconds(GetAnimationDuration(rewardButtonAnimator, closingAnimation));
+
+            // Применяем награды после завершения обеих анимаций
+            player.OnCoinsChange(totalCoins);
+            player.OnPopularityChange(totalPopularity);
+
+            // Сбрасываем счетчики
+            totalCoins = 0;
+            totalPopularity = 0;
+        }
+    }
 
 }

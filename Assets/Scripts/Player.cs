@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         // TODO: LOAD SYSTEM
         resources = new List<Resource>()
         {  
-            new Resource(ResourceType.Coins, 10000),    
+            new Resource(ResourceType.Coins, 1000000),    
             new Resource(ResourceType.Gems, 50),         
             new Resource(ResourceType.Fear, 0),          
             new Resource(ResourceType.Popularity, 0),    

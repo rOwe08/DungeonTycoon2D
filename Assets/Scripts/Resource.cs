@@ -4,8 +4,7 @@
     Gems,
     Fear,
     Popularity,
-    XP, 
-    CoinsPerSecond
+    XP
 }
 
 public class Resource
