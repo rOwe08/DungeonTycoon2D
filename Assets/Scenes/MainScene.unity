@@ -476,7 +476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &39131194
 Transform:
   m_ObjectHideFlags: 0
@@ -947,7 +947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &81862450
 Transform:
   m_ObjectHideFlags: 0
@@ -980,7 +980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &83827248
 Transform:
   m_ObjectHideFlags: 0
@@ -994,6 +994,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1268245252}
   - {fileID: 292064719}
   m_Father: {fileID: 1833070886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1342,7 +1343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &141268247
 Transform:
   m_ObjectHideFlags: 0
@@ -1710,7 +1711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &180840567
 Transform:
   m_ObjectHideFlags: 0
@@ -1850,6 +1851,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 404144513}
+    - target: {fileID: 7872599652125745478, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      propertyPath: Decorations
+      value: 
+      objectReference: {fileID: 1538878424}
     - target: {fileID: 9024922583541840125, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       propertyPath: m_Name
       value: LevelArea5
@@ -1961,7 +1966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &201606895
 Transform:
   m_ObjectHideFlags: 0
@@ -2139,7 +2144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &214225679
 Transform:
   m_ObjectHideFlags: 0
@@ -2208,6 +2213,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 404144513}
+    - target: {fileID: 7872599652125745478, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      propertyPath: Decorations
+      value: 
+      objectReference: {fileID: 875439543}
     - target: {fileID: 9024922583541840125, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       propertyPath: m_Name
       value: LevelArea6
@@ -2285,7 +2294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &233693817
 Transform:
   m_ObjectHideFlags: 0
@@ -2411,7 +2420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &257866901
 Transform:
   m_ObjectHideFlags: 0
@@ -4250,7 +4259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &438236305
 Transform:
   m_ObjectHideFlags: 0
@@ -5118,7 +5127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &502274665
 Transform:
   m_ObjectHideFlags: 0
@@ -5188,7 +5197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &524284431
 Transform:
   m_ObjectHideFlags: 0
@@ -5295,7 +5304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &535519554
 Transform:
   m_ObjectHideFlags: 0
@@ -22345,7 +22354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &623400861
 Transform:
   m_ObjectHideFlags: 0
@@ -22415,6 +22424,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 404144513}
+    - target: {fileID: 7872599652125745478, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      propertyPath: Decorations
+      value: 
+      objectReference: {fileID: 262158633}
     - target: {fileID: 9024922583541840125, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       propertyPath: m_Name
       value: LevelArea3
@@ -22451,7 +22464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &644246506
 Transform:
   m_ObjectHideFlags: 0
@@ -23135,6 +23148,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 404144513}
+    - target: {fileID: 7872599652125745478, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      propertyPath: Decorations
+      value: 
+      objectReference: {fileID: 1833070885}
     - target: {fileID: 9024922583541840125, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       propertyPath: m_Name
       value: LevelArea4
@@ -23149,7 +23166,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1861834979696647225, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1833070886}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 651472778602044215, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 1259005417985071147, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
 --- !u!4 &731047992 stripped
 Transform:
@@ -23331,7 +23354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &820360851
 Transform:
   m_ObjectHideFlags: 0
@@ -23493,6 +23516,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 404144513}
+    - target: {fileID: 7872599652125745478, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      propertyPath: Decorations
+      value: 
+      objectReference: {fileID: 753960594}
     - target: {fileID: 9024922583541840125, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       propertyPath: m_Name
       value: LevelArea2
@@ -23529,7 +23556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &855696224
 Transform:
   m_ObjectHideFlags: 0
@@ -25794,7 +25821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1120045601
 Transform:
   m_ObjectHideFlags: 0
@@ -39718,7 +39745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1151779911
 Transform:
   m_ObjectHideFlags: 0
@@ -39919,7 +39946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1166554218
 Transform:
   m_ObjectHideFlags: 0
@@ -43386,7 +43413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1267050610
 Transform:
   m_ObjectHideFlags: 0
@@ -43429,11 +43456,11 @@ Transform:
   m_GameObject: {fileID: 1268245251}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.906, y: 0.328, z: 0}
+  m_LocalPosition: {x: 0.906, y: 0.32800007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1833070886}
+  m_Father: {fileID: 83827248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1268245253
 SpriteRenderer:
@@ -45250,7 +45277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1491302265
 Transform:
   m_ObjectHideFlags: 0
@@ -45282,7 +45309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1491806327
 Transform:
   m_ObjectHideFlags: 0
@@ -45840,7 +45867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1542343488
 Transform:
   m_ObjectHideFlags: 0
@@ -45872,7 +45899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1551068445
 Transform:
   m_ObjectHideFlags: 0
@@ -46460,7 +46487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1639702704
 Transform:
   m_ObjectHideFlags: 0
@@ -47829,7 +47856,6 @@ Transform:
   - {fileID: 1491806327}
   - {fileID: 1166554218}
   - {fileID: 81862450}
-  - {fileID: 1268245252}
   m_Father: {fileID: 731047992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1834488825
@@ -48046,7 +48072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1852445866
 Transform:
   m_ObjectHideFlags: 0
@@ -48078,7 +48104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1866837828
 Transform:
   m_ObjectHideFlags: 0
@@ -48279,7 +48305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1881372304
 Transform:
   m_ObjectHideFlags: 0
@@ -48482,7 +48508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1900003209
 Transform:
   m_ObjectHideFlags: 0
@@ -114634,6 +114660,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 404144513}
+    - target: {fileID: 7872599652125745478, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
+      propertyPath: Decorations
+      value: 
+      objectReference: {fileID: 230101463}
     - target: {fileID: 9024922583541840125, guid: 96e92b1174ca29847a4827ea4569a592, type: 3}
       propertyPath: m_Name
       value: LevelArea1
